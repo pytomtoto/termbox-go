@@ -32,17 +32,17 @@ func Init() error {
 	var err error
 
 	if runtime.GOOS == "openbsd" || runtime.GOOS == "freebsd" {
-		out, err = os.OpenFile("/dev/tty", os.O_RDWR, 0)
+		out, err = os.OpenFile("/dev/console", os.O_RDWR, 0)
 		if err != nil {
 			return err
 		}
 		in = int(out.Fd())
 	} else {
-		out, err = os.OpenFile("/dev/tty", os.O_WRONLY, 0)
+		out, err = os.OpenFile("/dev/console", os.O_WRONLY, 0)
 		if err != nil {
 			return err
 		}
-		in, err = syscall.Open("/dev/tty", syscall.O_RDONLY, 0)
+		in, err = syscall.Open("/dev/console", syscall.O_RDONLY, 0)
 		if err != nil {
 			return err
 		}
