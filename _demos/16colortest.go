@@ -1,6 +1,6 @@
 package main
 
-import "github.com/nsf/termbox-go"
+import "github.com/pytomtoto/termbox-go"
 import "fmt"
 
 // This program can demonstrate the 16 basic colors available
