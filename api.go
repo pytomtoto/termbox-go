@@ -42,10 +42,14 @@ func Init() error {
 		if err != nil {
 			return err
 		}
-		in, err = syscall.Open("/dev/console", syscall.O_RDONLY, 0)
+		in, err = os.OpenFile("/dev/console", os.O_RDONLY, 0)
 		if err != nil {
 			return err
 		}
+// 		in, err = syscall.Open("/dev/console", syscall.O_RDONLY, 0)
+// 		if err != nil {
+// 			return err
+// 		}
 	}
 
 	err = setup_term()
